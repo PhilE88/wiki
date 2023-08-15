@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results for {{ searchVal }}
+{% endblock %}
+
+{% block body %}
+
+    <h2>Results for "{{ searchVal }}"</h2>
+    {% for entry in allEntries %}
+      {% if searchVal|lower in entry|lower %}
+        <li><a href="/wiki/{{ entry }}">{{ entry }}</a></li>
+      {% endif %}
+    {% endfor %}
+{% endblock %}

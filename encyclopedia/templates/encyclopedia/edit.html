@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Article
+{% endblock %}
+
+{% block body %}
+
+    <h2>Edit Article</h2>
+    <p>Clicking submit will overwrite the existing article and save it to the encyclopedia</p>
+    <form action="{% url 'edit' entry %}" method="post">
+      {% csrf_token %}
+      {% comment %} <input type="text" name="title" value="{{ entry }}" style="display:block; margin: 12px 0px;"/> {% endcomment %}
+      {% if error %}
+      <span style="color:red;">{{ errorMsg }}</span>
+      {% endif %}
+      <textarea name="entryTxt">{{ mdFile }}</textarea>
+      <input type="submit" />
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Entry
+{% endblock %}
+
+{% block body %}
+
+    <h2>Create New Entry</h2>
+    <p>Create a new article to add to the encyclopedia</p>
+    <form action="{% url 'newEntry' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="title" placeholder="Enter Title" style="display:block; margin: 12px 0px;"/>
+      {% if error %}
+      <span style="color:red;">{{ errorMsg }}</span>
+      {% endif %}
+      <textarea name="entryTxt" placeholder="Write article..."></textarea>
+      <input type="submit" />
+    </form>
+{% endblock %}

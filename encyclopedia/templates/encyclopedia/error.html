@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Article Not Found
+{% endblock %}
+
+{% block body %}
+
+    <h2><span style="color: red;">ERROR: </span>"{{ article }}" does not exist</h2>
+    <p>The article you are looking for may not exist, or was not spelled correctly.</p>
+    <p>You may add this article by clicking 'Create New Page' on the left-hand menu.</p>
+
+{% endblock %}
