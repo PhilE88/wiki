@@ -7,6 +7,7 @@ import markdown2
 
 from . import util
 
+# The Random Page functionality is in layout.html
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
